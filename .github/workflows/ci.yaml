@@ -27,6 +27,11 @@ jobs:
 
       - name: Compile Test and Verify
         run: mvn --batch-mode clean verify
+
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
         
       - name: Cache Coverity
         id: cache_coverity
